@@ -18,9 +18,10 @@
         <td>{{ e.end }}</td>
         <td>{{ e.description }}</td>
         <td>
-            <a href="/events/edit/{{ e.id }}" class="btn btn-primary btn-sm">Edit</a>
-            <a href="/events/delete/{{ e.id }}" class="btn btn-danger btn-sm">Delete</a>
+            <a href="{{ url_for('edit_event', event_id=e.event_id) }}" class="btn btn-primary btn-sm">Edit</a>
+            <a href="{{ url_for('delete_event', event_id=e.event_id) }}" class="btn btn-danger btn-sm">Delete</a>
         </td>
+    </tr>
 
 
     {% endfor %}
