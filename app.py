@@ -54,6 +54,28 @@ def add_event():
     return render_template('add_event.html')
 
 
+@app.route('/events/edit/<int:event_id>', methods=['GET', 'POST'])
+def edit_event(event_id):
+    event = Event.query.get_or_404(event_id)
+    if request.method == 'POST':
+        event.title = request.form['title']
+        event.description = request.form['description']
+
+        start_date = request.form.get('start_date')
+        end_date = request.form.get('end_date')
+
+        if not start_date or not end_date:
+            return "Start date and End date are required", 400
+
+        event.start_time = datetime.strptime(start_date, '%Y-%m-%d')
+        event.end_time = datetime.strptime(end_date, '%Y-%m-%d').replace(hour=23, minute=59)
+
+        db.session.commit()
+        return redirect(url_for('events'))
+
+    return render_template('add_event.html', event=event)
+
+
 # ---------------- RESOURCES ----------------
 @app.route('/resources')
 def resources():
