@@ -7,27 +7,33 @@
     <form method="post">
 
         <label>Event Title</label>
-        <input type="text" class="form-control mb-3" name="title" placeholder="Event Title" required>
+        <input type="text" class="form-control mb-3" name="title" placeholder="Event Title" required value="{{ event.title if event else '' }}">
 
         <div class="row mb-3">
             <div class="col-md-6">
                 <label>Start Date</label>
-                <input type="date" name="start_date" class="form-control" required>
+                <input type="date" name="start_date" class="form-control" required value="{{ event.start_time.date().isoformat() if event else '' }}">
             </div>
 
             <div class="col-md-6">
                 <label>End Date</label>
-                <input type="date" name="end_date" class="form-control" required>
+                <input type="date" name="end_date" class="form-control" required value="{{ event.end_time.date().isoformat() if event else '' }}">
             </div>
         </div>
 
         <label>Description</label>
-        <textarea class="form-control mb-3" name="description" placeholder="Description"></textarea>
+        <textarea class="form-control mb-3" name="description" placeholder="Description">{{ event.description if event else '' }}</textarea>
 
         <div style="text-align: center;">
-            <button type="submit" class="btn btn-primary tooltip" data-tooltip="Create a new event">
-                Add Event
-            </button>
+            {% if event %}
+                <button type="submit" class="btn btn-primary tooltip" data-tooltip="Update event">
+                    Update Event
+                </button>
+            {% else %}
+                <button type="submit" class="btn btn-primary tooltip" data-tooltip="Create a new event">
+                    Add Event
+                </button>
+            {% endif %}
         </div>
 
     </form>
