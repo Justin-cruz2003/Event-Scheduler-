@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+<a href="/resources/add" class="btn btn-primary btn-sm">Add Resource</a>
+<div class="table-center">
+    <table class="table table-bordered">
+
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Actions</th>
+    </tr>
+    {% for r in resources %}
+    <tr>
+        <td>{{ r.resource_name }}</td>
+        <td>{{ r.resource_type }}</td>
+        <td>
+            <a href="/delete_resource/{{ r.resource_id }}" class="btn btn-danger btn-sm">Delete</a>
+        </td>
+
+    </tr> 
+    {% endfor %}
+</table>
+{% endblock %}

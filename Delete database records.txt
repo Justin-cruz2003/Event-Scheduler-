@@ -1,0 +1,14 @@
+flask shell
+
+
+from app import db
+from models import Event, Resource, EventResourceAllocation
+
+EventResourceAllocation.query.delete()
+Event.query.delete()
+Resource.query.delete()
+
+db.session.commit()
+
+
+exit()

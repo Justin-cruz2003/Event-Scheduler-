@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h4 class="page-title">Add Event</h4>
+
+<div class="form-center">
+    <form method="post">
+
+        <label>Event Title</label>
+        <input type="text" class="form-control mb-3" name="title" placeholder="Event Title" required>
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label>Start Date</label>
+                <input type="date" name="start_date" class="form-control" required>
+            </div>
+
+            <div class="col-md-6">
+                <label>End Date</label>
+                <input type="date" name="end_date" class="form-control" required>
+            </div>
+        </div>
+
+        <label>Description</label>
+        <textarea class="form-control mb-3" name="description" placeholder="Description"></textarea>
+
+        <div style="text-align: center;">
+            <button type="submit" class="btn btn-primary tooltip" data-tooltip="Create a new event">
+                Add Event
+            </button>
+        </div>
+
+    </form>
+</div>
+
+{% endblock %}

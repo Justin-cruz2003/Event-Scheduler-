@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Event Scheduler</title>
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<div class="container mt-4">
+    <h2 class="mb-4">Event Scheduling & Resource Allocation System</h2>
+<div class="menu-horizontal">
+    <a href="/events" class="menu-btn">Events</a>
+    <a href="/resources" class="menu-btn">Resources</a>
+    <a href="/allocate" class="menu-btn">Allocate</a>
+    <a href="/allocations" class="menu-btn">Allocations</a>
+    <a href="/report" class="menu-btn">Report</a>
+</div>
+<div class="back-home">
+    <a href="/" class="back-btn">← Back to Home</a>
+</div>
+
+    <hr>
+
+    {% block content %}{% endblock %}
+</div>
+</body>
+</html>
