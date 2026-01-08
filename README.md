@@ -150,7 +150,7 @@ Please provide a screen-recorded demo video showcasing:
 🔗 **Demo Video Link:**
 
 ```
-https://<your-video-link>
+[https://<your-video-link>](https://drive.google.com/file/d/1zcZHlbApYHhxiAYk4D-v0bu6QcM51c6Y/view?usp=sharing)
 ```
 
 ---
